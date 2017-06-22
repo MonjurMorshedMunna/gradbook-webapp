@@ -43,7 +43,7 @@ export class AuthService{
      resolve(this.isAuthenticated);
      });
      });*/
-    return this.http.post('http://localhost:9090/oauth/token?grant_type=password&username=monjurmorshed794@outlook.com&password=password', creds, options)
+    return this.http.post('http://localhost:9090/oauth/token', creds, options)
       .toPromise()
       .then((res=> console.log(res)))
       .catch();
