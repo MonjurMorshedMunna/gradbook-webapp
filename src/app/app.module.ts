@@ -12,12 +12,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from './services/authentication/AuthService';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule, MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MainPageComponent} from './components/main-page/mainpage.component';
+import {NgNotifyPopup, NotificationService} from 'ng2-notify-popup';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +31,12 @@ import {MaterialModule, MdButtonModule, MdCheckboxModule} from '@angular/materia
     BrowserAnimationsModule,
     MdButtonModule,
     MdCheckboxModule,
-    MaterialModule
+    MaterialModule,
+    NgNotifyPopup
   ],
   providers: [
-    AuthService
+    AuthService,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })
