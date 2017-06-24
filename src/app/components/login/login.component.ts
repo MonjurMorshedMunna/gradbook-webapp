@@ -41,16 +41,14 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.user).then((success:boolean)=>{
       var isAuthenticated: string='';
       this.showLoader=true;
-      setTimeout(()=>{
-        isAuthenticated = localStorage.getItem('isAuthenticated');
-        if(isAuthenticated==='true'){
-          this.notify.show('Success', {position:'top', duration:'2000',type:'success'});
-          this.router.navigateByUrl('/main');
-        }else{
-          this.notify.show('Failure', {position:'top', duration:'2000',type:'error'});
-        }
-        this.showLoader=false;
-      },10000);
+      isAuthenticated = localStorage.getItem('isAuthenticated');
+      if(success===true){
+        this.notify.show('Success', {position:'top', duration:'2000',type:'success'});
+        this.router.navigateByUrl('/main');
+      }else{
+        this.notify.show('Failure', {position:'top', duration:'2000',type:'error'});
+      }
+
 
     });
   }

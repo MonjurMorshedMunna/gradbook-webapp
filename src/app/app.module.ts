@@ -14,6 +14,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule, MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MainPageComponent} from './components/main-page/mainpage.component';
 import {NgNotifyPopup, NotificationService} from 'ng2-notify-popup';
+import {RegistrationService} from './services/registration/RegistrationService';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {NgNotifyPopup, NotificationService} from 'ng2-notify-popup';
   ],
   providers: [
     AuthService,
-    NotificationService
+    NotificationService,
+    RegistrationService
   ],
   bootstrap: [AppComponent]
 })
