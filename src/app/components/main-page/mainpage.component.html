@@ -1,13 +1,26 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" *ngIf="!authenticated">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Gradbook</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li ><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
     </ul>
   </div>
 </nav>
+<nav class="navbar navbar-default" *ngIf="authenticated">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Gradbook</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a routerLink="/login">NewsFeed</a></li>
+      <li><a routerLink="/register">Messages</a></li>
+      <li><a routerLink="/register">Search</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

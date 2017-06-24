@@ -7,7 +7,7 @@ import {NgModule} from '@angular/core';
 import {MainPageComponent} from './components/main-page/mainpage.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'login', pathMatch:'full'},
+  {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'main', component: MainPageComponent}

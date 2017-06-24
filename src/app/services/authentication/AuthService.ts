@@ -43,6 +43,16 @@ export class AuthService{
 
   }
 
+  loggedUser(): Promise<User>{
+    var user:User = <User>{};
+    let userUrl='http://localhost:9090/user?access_token='+localStorage.getItem('auth_token');
+    return this.http.get(userUrl)
+      .toPromise()
+      .then((response)=> response.json().data as User)
+      .catch();
+
+  }
+
   headers():Promise<any>{
     let client_id= 'gradbook';
     let client_secret = 'gradbook';
