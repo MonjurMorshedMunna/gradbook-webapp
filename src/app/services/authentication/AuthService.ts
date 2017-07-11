@@ -14,7 +14,7 @@ export class AuthService{
   isAuthenticated: boolean = false;
   userId: string;
 
-  constructor(private http:Http, private notify: NotificationService){
+  constructor(private http:Http, private notify: NotificationService, private router:Router){
 
   }
   login(user: User):Promise<boolean>{
@@ -31,9 +31,10 @@ export class AuthService{
             var json=res.json();
             console.log(json.access_token);
             localStorage.removeItem('auth_token');
-            localStorage.setItem('auth_token', json.access_token);
+            window.location.href='http://localhost:4300?token='+json.access_token;
+            /*localStorage.setItem('auth_token', json.access_token);
             localStorage.setItem('isAuthenticated','true');
-            successStatus = true;
+            successStatus = true;*/
             resolve(successStatus);
 
           }))
@@ -49,7 +50,9 @@ export class AuthService{
     return this.http.get(userUrl)
       .toPromise()
       .then((response)=> response.json().data as User)
-      .catch();
+      .catch(()=>{
+        this.router.navigateByUrl('/login');
+      });
 
   }
 

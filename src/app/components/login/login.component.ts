@@ -38,18 +38,9 @@ export class LoginComponent implements OnInit{
     this.user.password = this.userForm.value.password;
 
 
+    this.showLoader=true;
+    
     this.authService.login(this.user).then((success:boolean)=>{
-      var isAuthenticated: string='';
-      this.showLoader=true;
-      isAuthenticated = localStorage.getItem('isAuthenticated');
-      if(success===true){
-        this.notify.show('Success', {position:'top', duration:'2000',type:'success'});
-        this.router.navigateByUrl('/main');
-      }else{
-        this.notify.show('Failure', {position:'top', duration:'2000',type:'error'});
-      }
-
-
     });
   }
 }

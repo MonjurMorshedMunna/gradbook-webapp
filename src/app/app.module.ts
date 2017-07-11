@@ -25,6 +25,7 @@ import {RegistrationService} from './services/registration/RegistrationService';
   ],
   imports: [
     BrowserModule,
+
     FormsModule,
     HttpModule,
     AppRoutingModule,
