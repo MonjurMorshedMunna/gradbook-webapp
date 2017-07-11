@@ -5,10 +5,16 @@ import {AuthService} from '../../services/authentication/AuthService';
 import {Router} from '@angular/router';
 import {NotificationService} from 'ng2-notify-popup';
 
+
+
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
 })
+
+
+
 export class LoginComponent implements OnInit{
   user: User;
   userForm: FormGroup;
@@ -39,7 +45,7 @@ export class LoginComponent implements OnInit{
 
 
     this.showLoader=true;
-    
+
     this.authService.login(this.user).then((success:boolean)=>{
     });
   }
